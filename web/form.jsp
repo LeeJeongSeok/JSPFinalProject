@@ -56,61 +56,32 @@
     </div>
 </nav>
 
-<form action="/JSPFinalProject/userForm" method="post">
-    <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3">
-        </div>
-    </div>
-    <fieldset class="form-group">
-        <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-            <div class="col-sm-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                    <label class="form-check-label" for="gridRadios1">
-                        First radio
-                    </label>
+<div class="container" id="main">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default content-main">
+            <form action="/JSPFinalProject/form" method="post">
+                <div class="form-group">
+                    <label for="userId">사용자 아이디</label>
+                    <input class="form-control" id="userId" name="userId" placeholder="User ID">
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                    <label class="form-check-label" for="gridRadios2">
-                        Second radio
-                    </label>
+                <div class="form-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
-                <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                    <label class="form-check-label" for="gridRadios3">
-                        Third disabled radio
-                    </label>
+                <div class="form-group">
+                    <label for="name">이름</label>
+                    <input class="form-control" id="name" name="name" placeholder="Name">
                 </div>
-            </div>
-        </div>
-    </fieldset>
-    <div class="form-group row">
-        <div class="col-sm-2">Checkbox</div>
-        <div class="col-sm-10">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                    Example checkbox
-                </label>
-            </div>
+                <div class="form-group">
+                    <label for="email">이메일</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <button type="submit" class="btn btn-success clearfix pull-right">회원가입</button>
+                <div class="clearfix" />
+            </form>
         </div>
     </div>
-    <div class="form-group row">
-        <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-    </div>
-</form>
+</div>
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
