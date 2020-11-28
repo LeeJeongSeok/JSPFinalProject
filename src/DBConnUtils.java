@@ -6,12 +6,10 @@ import java.sql.PreparedStatement;
 public class DBConnUtils {
     public static Connection getConnection() {
         try {
-            String url = "jdbc:mysql://localhost:3306/mysql";
-            String id = "root";
-            String password = "1q2w3e4r";
-            Class.forName("com.mysql.jdbc.Driver");
 
-            DriverManager.getConnection("jdbc:mysql://localhost:/?serverTimezone=UTC&useSSL=false", id, password);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?serverTimezone=UTC", "root", "1q2w3e4r");
+
             System.out.println("성공");
         } catch (Exception e) {
             e.printStackTrace();
