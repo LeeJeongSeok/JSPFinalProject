@@ -17,8 +17,6 @@ import static java.time.ZonedDateTime.now;
 public class UserFormServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
         System.out.println("post here");
