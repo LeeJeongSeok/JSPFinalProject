@@ -4,19 +4,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-@WebServlet(name = "UserFormServlet", urlPatterns = "/form")
+import static java.time.ZonedDateTime.now;
+
+@WebServlet(name = "UserFormServlet", urlPatterns = "/create")
 public class UserFormServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
         System.out.println("post here");
 
-        String userId = request.getParameter("userId");
+        String id = request.getParameter("userId");
         String password = request.getParameter("password");
-        String email = request.getParameter("email");
         String name = request.getParameter("name");
+        String email = request.getParameter("email");
 
-        System.out.println(userId + password + email + name);
+
+
+        String query = "INSERT INTO USER (USER_ID, PASSWORD, NAME, EMAIL, CREATE_DATE) VALUES ('"+id+"', '"+password+"', '"+name+"', '"+email+"', '"+timestamp+"')";
+        //String query = "SELECT * FROM user";
+
+        //("insert into users(first_name,last_name,city_name,email)values('"+first_name+"','"+last_name+"','"+city_name+"','"+email+"')");
+
+        try {
+
+            Statement statement = DBConnUtils.getConnection().createStatement();
+            statement.executeUpdate(query);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+
+
+
+
 
         response.sendRedirect("index.jsp");
 
