@@ -1,9 +1,17 @@
+import java.sql.Timestamp;
+
 public class User {
 
     String id;
     String password;
     String name;
     String email;
+    Timestamp create_date;
+    Timestamp modified_date;
+
+    public User() {
+
+    }
 
 
     public User(String id, String password, String name, String email) {
