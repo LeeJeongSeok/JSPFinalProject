@@ -61,22 +61,28 @@
         </div>
     </nav>
 
-    <form action="/JSPFinalProject/login" method="post">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div class="container" id="main">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default content-main">
+                <%--{{#errorMessage}}
+                <div class="alert alert-danger" role="alert">{{this}}</div>
+                {{/errorMessage}}--%>
+                <form action="/JSPFinalProject/login" method="post" >
+                    <div class="form-group">
+                        <label for="userId">사용자 아이디</label>
+                        <input class="form-control" id="userId" name="userId" placeholder="User ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">비밀번호</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-success clearfix pull-right">로그인</button>
+                    <div class="clearfix" />
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

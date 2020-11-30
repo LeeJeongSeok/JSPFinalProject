@@ -1,3 +1,5 @@
+import org.w3c.dom.UserDataHandler;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,10 +13,13 @@ public class LoginServlet extends HttpServlet {
 
         System.out.println("post hello");
 
-        System.out.println(request.getParameter("email"));
-        System.out.println(request.getParameter("password"));
 
-        response.sendRedirect("index.jsp");
+        if (new UserDAO().findUser(request.getParameter("userId"), request.getParameter("password"))) {
+            response.sendRedirect("index.jsp");
+        } else {
+            System.out.println("로그인 실패뇨");
+        }
+
 
     }
 

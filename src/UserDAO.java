@@ -41,13 +41,32 @@ public class UserDAO {
                 users.add(user);
             }
             resultSet.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
         } catch (NullPointerException nullPointerException) {
             nullPointerException.printStackTrace();
         }
 
         return users;
+    }
+
+    public boolean findUser(String userId, String password) {
+
+        String query = "select * from user";
+
+        try {
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                if (resultSet.getString("user_id").equals(userId) && resultSet.getString("password").equals(password)) {
+                    return true;
+                }
+            }
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+
+        return false;
     }
 
 
