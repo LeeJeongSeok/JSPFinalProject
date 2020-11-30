@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vo.User" %>
+
 <html>
 <head>
     <!-- Required meta tags -->
@@ -75,14 +78,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                users
+                <% List<User> list = (List<User>) request.getAttribute("users"); %>
+                <%
+                    for (User user : list) {
+                %>
                 <tr>
-                    <th scope="row">id</th>
-                    <td>id</td>
-                    <td>name</td>
-                    <td>email</td>
-                    <%--<td><a href="/users/{{id}}/form" class="btn btn-success" role="button">수정</a></td>--%>
+                    <th scope="row"><%= user.getId()%></th>
+                    <td><%= user.getUser_id()%></td>
+                    <td><%= user.getName()%></td>
+                    <td><%= user.getEmail()%></td>
+                    <%--<a href="/update" class="btn btn-success" role="button">수정</a></td>--%>
                 </tr>
+                <%
+                    }
+                %>
+
                 <tr>
                     <th scope="row">2</th> <td>slipp</td> <td>슬립</td> <td>slipp@sample.net</td><td><a href="#" class="btn btn-success" role="button">수정</a></td>
                 </tr>
