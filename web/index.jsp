@@ -49,6 +49,24 @@
         </ul>
 
         <ul class="nav justify-content-end">
+
+          <%
+              session = request.getSession();
+              out.print(session.getAttribute("user"));
+              if (session.getAttribute("user") != null) {
+
+          %>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/JSPFinalProject/list.jsp">List</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/JSPFinalProject/logout" role="button">Logout</a>
+            </li>
+
+            <%}else {%>
+
           <li class="nav-item">
             <a class="nav-link" href="/JSPFinalProject/login.jsp">Login</a>
           </li>
@@ -56,6 +74,10 @@
           <li class="nav-item">
             <a class="nav-link" href="/JSPFinalProject/form.jsp">Sign Up</a>
           </li>
+
+            <% }%>
+
+
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
