@@ -1,4 +1,4 @@
-<%--
+<%@ page import="vo.User" %><%--
   Created by IntelliJ IDEA.
   User: jeongseok
   Date: 2020/11/23
@@ -52,13 +52,16 @@
 
           <%
               session = request.getSession();
-              out.print(session.getAttribute("user"));
-              if (session.getAttribute("user") != null) {
+              //out.print(session.getAttribute("user"));
+              User user = (User) session.getAttribute("user");
+              if (user != null) {
 
           %>
 
+          <%out.print(user.getId());%>
+
             <li class="nav-item">
-                <a class="nav-link" href="/JSPFinalProject/list.jsp">List</a>
+                <a class="nav-link" href="/JSPFinalProject/list">List</a>
             </li>
 
             <li class="nav-item">

@@ -28,15 +28,7 @@ public class UserDAO {
 
             while (resultSet.next()) {
 
-                user = new User();
-
-                user.setId(resultSet.getInt("id"));
-                user.setUser_id(resultSet.getString("user_id"));
-                user.setPassword(resultSet.getString("password"));
-                user.setName(resultSet.getString("name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setCreate_date(resultSet.getTimestamp("create_date"));
-                user.setModified_date(resultSet.getTimestamp("modified_date"));
+                setUserData();
 
                 users.add(user);
             }
@@ -50,23 +42,41 @@ public class UserDAO {
         return users;
     }
 
-    public boolean findUser(String userId, String password) {
+    public User findUser(String userId, String password) {
 
-        String query = "select * from user";
+        String query = "select * from user where user_id = '" + userId +"' AND password = '" + password + "'";
 
         try {
             resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                if (resultSet.getString("user_id").equals(userId) && resultSet.getString("password").equals(password)) {
-                    return true;
+                if (resultSet.getString("user_id") != null) {
+
+                    setUserData();
+                    System.out.println(user.toString());
+
+                } else {
+                    System.out.println("유저가 없습니다.");
                 }
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
 
-        return false;
+        return user;
+    }
+
+
+    private void setUserData() throws SQLException {
+        user = new User();
+
+        user.setId(resultSet.getInt("id"));
+        user.setUser_id(resultSet.getString("user_id"));
+        user.setPassword(resultSet.getString("password"));
+        user.setName(resultSet.getString("name"));
+        user.setEmail(resultSet.getString("email"));
+        user.setCreate_date(resultSet.getTimestamp("create_date"));
+        user.setModified_date(resultSet.getTimestamp("modified_date"));
     }
 
 

@@ -5,9 +5,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "UserUpdateServlet", urlPatterns = "/update/{id}/user")
+@WebServlet(name = "UserUpdateServlet", urlPatterns = "/user/update")
 public class UserUpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 
 
         System.out.println("post");
