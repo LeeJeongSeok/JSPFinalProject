@@ -31,14 +31,13 @@ public class UserUpdateServlet extends HttpServlet {
         //String query = "INSERT INTO USER (USER_ID, PASSWORD, NAME, EMAIL, CREATE_DATE) VALUES ('"+userId+"', '"+password+"', '"+name+"', '"+email+"', '"+timestamp+"')";
 
         try {
-
             Statement statement = DBConnUtils.getConnection().createStatement();
             statement.executeUpdate(query);
         } catch (NullPointerException | SQLException e) {
             e.printStackTrace();
         }
 
-        response.sendRedirect("/index.jsp");
+        response.sendRedirect("/JSPFinalProject/index.jsp");
 
     }
 

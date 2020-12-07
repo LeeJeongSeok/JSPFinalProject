@@ -65,6 +65,10 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="/JSPFinalProject/updateUser.jsp">개인정보수정</a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="/JSPFinalProject/logout" role="button">Logout</a>
             </li>
 

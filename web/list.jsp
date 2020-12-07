@@ -52,6 +52,30 @@
         </ul>
 
         <ul class="nav justify-content-end">
+            <%
+                session = request.getSession();
+                //out.print(session.getAttribute("user"));
+                User sessionedUser = (User) session.getAttribute("user");
+                if (sessionedUser != null) {
+
+            %>
+
+            <%out.print(sessionedUser.getId());%>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/JSPFinalProject/list">List</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/JSPFinalProject/updateUser.jsp">개인정보수정</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/JSPFinalProject/logout" role="button">Logout</a>
+            </li>
+
+            <%}else {%>
+
             <li class="nav-item">
                 <a class="nav-link" href="/JSPFinalProject/login.jsp">Login</a>
             </li>
@@ -59,6 +83,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="/JSPFinalProject/form.jsp">Sign Up</a>
             </li>
+
+            <% }%>
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
@@ -78,7 +104,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <% List<User> list = (List<User>) request.getAttribute("users"); %>
+                <%
+                    List<User> list = (List<User>) request.getAttribute("users");
+                %>
                 <%
                     for (User user : list) {
                 %>
@@ -87,7 +115,6 @@
                     <td><%= user.getUser_id()%></td>
                     <td><%= user.getName()%></td>
                     <td><%= user.getEmail()%></td>
-                    <td><a href="/JSPFinalProject/updateUser.jsp" class="btn btn-success" role="button">수정</a></td>
                 </tr>
                 <%
                     }
