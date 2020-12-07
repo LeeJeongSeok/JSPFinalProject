@@ -21,14 +21,14 @@ public class UserFormServlet extends HttpServlet {
 
         System.out.println("post here");
 
-        String id = request.getParameter("userId");
+        String userId = request.getParameter("userId");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
 
 
 
-        String query = "INSERT INTO USER (USER_ID, PASSWORD, NAME, EMAIL, CREATE_DATE) VALUES ('"+id+"', '"+password+"', '"+name+"', '"+email+"', '"+timestamp+"')";
+        String query = "INSERT INTO USER (USER_ID, PASSWORD, NAME, EMAIL, CREATE_DATE) VALUES ('"+userId+"', '"+password+"', '"+name+"', '"+email+"', '"+timestamp+"')";
         //String query = "SELECT * FROM user";
 
         //("insert into users(first_name,last_name,city_name,email)values('"+first_name+"','"+last_name+"','"+city_name+"','"+email+"')");
