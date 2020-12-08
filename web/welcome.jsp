@@ -18,23 +18,7 @@
     <%--    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">--%>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
     <!-- Custom styles for this template -->
     <link href="./css/cover.css" rel="stylesheet">
   </head>
@@ -51,9 +35,8 @@
 
   <main class="px-3">
     <h1>Hello Stranger!</h1>
-    <p class="lead">에브리타임 게시물에 온 걸 환영해</p>
-    <p class="lead">
-      <a href="./signin.jsp" class="btn btn-lg btn-secondary fw-bold border-warning bg-warning text-light">참여하기</a>
+    <p class="lead">에브리타임 게시판에 온 걸 환영해</p>
+      <a href="./login.jsp" class="btn btn-lg btn-secondary fw-bold border-warning bg-warning text-light">참여하기</a>
     </p>
   </main>
 
