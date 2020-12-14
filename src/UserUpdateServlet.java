@@ -37,7 +37,7 @@ public class UserUpdateServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("/JSPFinalProject/index.jsp");
+        response.sendRedirect("/JSPFinalProject/index3.jsp");
 
     }
 

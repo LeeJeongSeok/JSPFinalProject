@@ -44,7 +44,7 @@ public class UserFormServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("index3.jsp");
 
     }
 

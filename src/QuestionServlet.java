@@ -17,7 +17,7 @@ public class QuestionServlet extends HttpServlet {
 
         new QuestionDAO().insertQuestion(title, contents);
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("index3.jsp");
 
     }
 

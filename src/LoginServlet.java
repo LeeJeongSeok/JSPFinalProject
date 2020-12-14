@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
 
         User user = new UserDAO().findUser(request.getParameter("userId"), request.getParameter("password"));
         session.setAttribute("user", user);
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("index");
 
     }
 
