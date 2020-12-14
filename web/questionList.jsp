@@ -4,6 +4,8 @@
 <%@ page import="vo.Question" %>
 
 <%@ include file="./commons/header.jspf" %>
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/styles.css" rel="stylesheet">
 
 <body>
 <br>
@@ -13,7 +15,6 @@
             <ul class="list">
                 <%
                     List<Question> questionList = (List<Question>) request.getAttribute("questionList");
-                    out.print(questionList.get(0).getTitle());
                 %>
 
                 <%
@@ -23,7 +24,7 @@
                     <div class="wrap">
                         <div class="main">
                             <strong class="subject">
-                                <a href="#"><%= question.getTitle()%></a>
+                                <a href="/JSPFinalProject/showQuestion?id=<%= question.getId()%>"><%= question.getTitle()%></a>
                             </strong>
                             <div class="auth-info">
                                 <i class="icon-add-comment"></i>
@@ -61,5 +62,9 @@
         </div>
     </div>
 </div>
+
+<script src="/js/jquery-2.2.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/scripts.js"></script>
 </body>
 </html>

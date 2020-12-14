@@ -54,7 +54,8 @@ public class QuestionDAO {
 
     public void insertQuestion(String title, String contents) {
 
-        String query = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE) VALUES ("+title+"', '"+contents+"', '"+1+"', '"+timestamp+"')";
+        String query = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE) VALUES ('" + title + "', '" + contents + "', '" + 1 + "', ?, '" + timestamp + "')";
+        String query2 = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE) VALUES ('?')";
 
         try {
             Statement statement = DBConnUtils.getConnection().createStatement();
@@ -64,6 +65,33 @@ public class QuestionDAO {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
 
+    public Question showQuestion(String id) {
+
+        String query = "select * from question where id = '" + id + "'";
+
+        try {
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+
+                question = new Question();
+
+                question.setId(resultSet.getInt("id"));
+                question.setTitle(resultSet.getString("title"));
+                question.setContents(resultSet.getString("contents"));
+                question.setCount_of_answer(resultSet.getInt("count_of_answer"));
+                question.setWriter_id(resultSet.getInt("writer_id"));
+                question.setCreate_date(resultSet.getTimestamp("create_date"));
+
+                questions.add(question);
+
+            }
+            resultSet.close();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return question;
     }
 }
