@@ -9,7 +9,7 @@ public class Question {
     String title;
     String contents;
     int count_of_answer;
-    int writer_id;
+    String writer_id;
     Timestamp create_date;
     Timestamp modified_date;
 
@@ -17,7 +17,7 @@ public class Question {
 
     }
 
-    public Question(int id, String title, String contents, int count_of_answer, int writer_id, Timestamp create_date, Timestamp modified_date) {
+    public Question(int id, String title, String contents, int count_of_answer, String writer_id, Timestamp create_date, Timestamp modified_date) {
         this.id = id;
         this.title = title;
         this.contents = contents;
@@ -60,11 +60,11 @@ public class Question {
         this.count_of_answer = count_of_answer;
     }
 
-    public int getWriter_id() {
+    public String getWriter_id() {
         return writer_id;
     }
 
-    public void setWriter_id(int writer_id) {
+    public void setWriter_id(String writer_id) {
         this.writer_id = writer_id;
     }
 

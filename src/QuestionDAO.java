@@ -24,7 +24,7 @@ public class QuestionDAO {
     }
 
     public List<Question> selectQuestion() {
-        String query = "select * from question";
+        String query = "select question.id, title, contents, count_of_answer, question.create_date, question.modified_date, user.user_id from question LEFT JOIN user ON question.writer_id = user.id;";
         try {
             resultSet = statement.executeQuery(query);
 
@@ -36,7 +36,7 @@ public class QuestionDAO {
                 question.setTitle(resultSet.getString("title"));
                 question.setContents(resultSet.getString("contents"));
                 question.setCount_of_answer(resultSet.getInt("count_of_answer"));
-                question.setWriter_id(resultSet.getInt("writer_id"));
+                question.setWriter_id(resultSet.getString("user.user_id"));
                 question.setCreate_date(resultSet.getTimestamp("create_date"));
 
                 questions.add(question);
@@ -69,7 +69,9 @@ public class QuestionDAO {
 
     public Question showQuestion(String id) {
 
-        String query = "select * from question where id = '" + id + "'";
+        String query = "select question.id, title, contents, count_of_answer, question.create_date, question.modified_date, user.user_id from question LEFT JOIN user ON question.writer_id = user.id where question.id = '"+ id +"'";
+
+        String query2 = "select question.id, title, contents, count_of_answer, question.create_date, question.modified_date, user.user_id from question LEFT JOIN user ON question.writer_id = user.id where question.id = '"+ id +"'";
 
         try {
             resultSet = statement.executeQuery(query);
@@ -82,7 +84,7 @@ public class QuestionDAO {
                 question.setTitle(resultSet.getString("title"));
                 question.setContents(resultSet.getString("contents"));
                 question.setCount_of_answer(resultSet.getInt("count_of_answer"));
-                question.setWriter_id(resultSet.getInt("writer_id"));
+                question.setWriter_id(resultSet.getString("user.user_id"));
                 question.setCreate_date(resultSet.getTimestamp("create_date"));
 
                 questions.add(question);

@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
-<%@ include file="./commons/header.jspf" %>
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <%@ include file="./commons/header2.jspf" %>
+</head>
+
+<body>
+<%@ include file="./commons/navigation.jspf" %>
 
 <div class="container" id="main">
     <div class="col-md-6 col-md-offset-3">
@@ -28,8 +35,6 @@
         </div>
     </div>
 </div>
-
-<%@ include file="./commons/footer.jspf" %>
 
 </body>
 </html>
