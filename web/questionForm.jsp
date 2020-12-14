@@ -13,6 +13,7 @@
     <div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
         <div class="panel panel-default content-main">
             <form method="post" action="/JSPFinalProject/question">
+                <input type="hidden" name="id" value="<%= sessionedUser.getId()%>">
                 <div class="form-group">
                     <label for="title">제목</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="제목"/>

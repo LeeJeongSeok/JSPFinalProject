@@ -12,12 +12,16 @@ import java.util.List;
 public class QuestionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String id = request.getParameter("id");
         String title = request.getParameter("title");
         String contents = request.getParameter("contents");
 
-        new QuestionDAO().insertQuestion(title, contents);
+        System.out.println(id);
 
-        response.sendRedirect("index3.jsp");
+
+        new QuestionDAO().insertQuestion(title, contents, id);
+
+        response.sendRedirect("index");
 
     }
 

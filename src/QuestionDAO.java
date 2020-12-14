@@ -52,9 +52,9 @@ public class QuestionDAO {
         return questions;
     }
 
-    public void insertQuestion(String title, String contents) {
+    public void insertQuestion(String title, String contents, String id) {
 
-        String query = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE) VALUES ('" + title + "', '" + contents + "', '" + 1 + "', ?, '" + timestamp + "')";
+        String query = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE, MODIFIED_DATE) VALUES ('" + title + "', '" + contents + "', '" + 0 + "', '"+ Integer.parseInt(id) + "', '" + timestamp + "', '" + timestamp + "')";
         String query2 = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE) VALUES ('?')";
 
         try {
