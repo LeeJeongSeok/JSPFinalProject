@@ -1,3 +1,6 @@
+package dao;
+
+import dao.DBConnUtils;
 import vo.Question;
 
 import java.sql.ResultSet;
@@ -54,8 +57,7 @@ public class QuestionDAO {
 
     public void insertQuestion(String title, String contents, String id) {
 
-        String query = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE, MODIFIED_DATE) VALUES ('" + title + "', '" + contents + "', '" + 0 + "', '"+ Integer.parseInt(id) + "', '" + timestamp + "', '" + timestamp + "')";
-        String query2 = "INSERT INTO QUESTION (TITLE, CONTENTS, COUNT_OF_ANSWER, WRITER_ID, CREATE_DATE) VALUES ('?')";
+        String query = "insert into question (title, contents, count_of_answer, writer_id, create_date, modified_date) VALUES ('" + title + "', '" + contents + "', '" + 0 + "', '"+ Integer.parseInt(id) + "', '" + timestamp + "', '" + timestamp + "')";
 
         try {
             Statement statement = DBConnUtils.getConnection().createStatement();
@@ -70,8 +72,6 @@ public class QuestionDAO {
     public Question showQuestion(String id) {
 
         String query = "select question.id, title, contents, count_of_answer, question.create_date, question.modified_date, user.user_id from question LEFT JOIN user ON question.writer_id = user.id where question.id = '"+ id +"'";
-
-        String query2 = "select question.id, title, contents, count_of_answer, question.create_date, question.modified_date, user.user_id from question LEFT JOIN user ON question.writer_id = user.id where question.id = '"+ id +"'";
 
         try {
             resultSet = statement.executeQuery(query);

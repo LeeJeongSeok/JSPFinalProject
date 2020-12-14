@@ -1,3 +1,6 @@
+package dao;
+
+import dao.DBConnUtils;
 import vo.User;
 
 import java.sql.ResultSet;
