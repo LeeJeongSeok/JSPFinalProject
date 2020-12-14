@@ -17,8 +17,9 @@ public class ShowServlet extends HttpServlet {
         System.out.println(request.getParameter("id"));
 
         Question question = new QuestionDAO().showQuestion(request.getParameter("id"));
-        System.out.println(question.getTitle());
 
-        response.sendRedirect("questionShow.jsp");
+        request.setAttribute("question", question);
+        request.getRequestDispatcher("questionShow.jsp").forward(request, response);
+
     }
 }

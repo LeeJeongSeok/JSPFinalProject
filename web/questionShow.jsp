@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="vo.Question" %>
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -11,10 +12,12 @@
 
 <div class="container" id="main">
     <div class="col-md-12 col-sm-12 col-lg-12">
-        {{#question}}
+        <%
+            Question question = (Question) request.getAttribute("question");
+        %>
         <div class="panel panel-default">
             <header class="qna-header">
-                <h2 class="qna-title">{{title}}</h2>
+                <h2 class="qna-title"><%= question.getTitle()%></h2>
             </header>
             <div class="content-main">
                 <article class="article">
@@ -23,15 +26,15 @@
                             <img src="https://graph.facebook.com/v2.3/100000059371774/picture" class="article-author-thumb" alt="">
                         </div>
                         <div class="article-header-text">
-                            <a href="/users/92/kimmunsu" class="article-author-name">{{writer.userId}}</a>
+                            <a href="/users/92/kimmunsu" class="article-author-name"><%= question.getWriter_id()%></a>
                             <a href="/questions/413" class="article-header-time" title="퍼머링크">
-                                {{FormattedCreateDate}}
+                                <%= question.getCreate_date()%>
                                 <i class="icon-link"></i>
                             </a>
                         </div>
                     </div>
                     <div class="article-doc">
-                        {{contents}}
+                        <%= question.getContents()%>
                     </div>
                     <div class="article-util">
                         <ul class="article-util-list">
@@ -53,7 +56,7 @@
 
                 <div class="qna-comment">
                     <div class="qna-comment-slipp">
-                        <p class="qna-comment-count"><strong>2</strong>개의 의견</p>
+                        <p class="qna-comment-count"><strong>0</strong>개의 의견</p>
                         <div class="qna-comment-slipp-articles">
                             {{#answers}}
                             <article class="article" id="answer-1405">
@@ -95,7 +98,6 @@
                 </div>
             </div>
         </div>
-        {{/question}}
     </div>
 </div>
 
