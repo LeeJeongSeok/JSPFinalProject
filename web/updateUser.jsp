@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page import="vo.User" %><%--
-  Created by IntelliJ IDEA.
-  User: jeongseok
-  Date: 2020/12/03
-  Time: 11:49 오후
-  To change this template use File | Settings | File Templates.
---%>
-<%@ include file="./commons/header.jspf" %>
+<%@ page import="vo.User" %>
+
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <%@ include file="./commons/header2.jspf" %>
+</head>
+
+<body>
+    <%@ include file="./commons/navigation.jspf" %>
+
 
 <div class="container" id="main">
     <div class="col-md-6 col-md-offset-3">
@@ -44,7 +47,10 @@
     </div>
 </div>
 
-<%@ include file="./commons/footer.jspf" %>
+    <!-- script references -->
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
 
 </body>
 </html>

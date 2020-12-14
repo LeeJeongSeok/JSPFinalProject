@@ -1,17 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jeongseok
-  Date: 2020/12/13
-  Time: 3:03 오후
-  To change this template use File | Settings | File Templates.
---%>
-<html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+<!DOCTYPE html>
+<html lang="kr">
 <head>
-    <title>Title</title>
-    <%@ include file="./commons/header.jspf" %>
-    <link href="./css/styles.css" rel="stylesheet">
+    <%@ include file="./commons/header2.jspf" %>
 </head>
+
 <body>
+<%@ include file="./commons/navigation.jspf" %>
+
 <div class="container" id="main">
     <div class="col-md-12 col-sm-12 col-lg-12">
         {{#question}}

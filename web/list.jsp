@@ -3,7 +3,14 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vo.User" %>
 
-<%@ include file="./commons/header.jspf" %>
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <%@ include file="./commons/header2.jspf" %>
+</head>
+
+<body>
+<%@ include file="./commons/navigation.jspf" %>
 
 <div class="container" id="main">
     <div class="col-md-10 col-md-offset-1">
@@ -35,8 +42,6 @@
         </div>
     </div>
 </div>
-
-<%@ include file="./commons/footer.jspf" %>
 
 </body>
 </html>

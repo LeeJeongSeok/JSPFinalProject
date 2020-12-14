@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ include file="./commons/header.jspf" %>
+
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <%@ include file="./commons/header2.jspf" %>
+</head>
 
 <body>
-<br>
+    <%@ include file="./commons/navigation.jspf" %>
+
 <div class="container" id="main">
     <div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
         <div class="panel panel-default content-main">
@@ -24,5 +30,10 @@
         </div>
     </div>
 </div>
+
+    <!-- script references -->
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
